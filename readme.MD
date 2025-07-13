@@ -25,7 +25,7 @@ terraform-eks-db/
 ├── main.tf                    # Main Terraform entry point that wires all modules
 ├── output.tf                  # Outputs of the infrastructure
 ├── readme.MD                  # You are here.
-├── terraform.tfvars           # Variable values
+├── terraform.tfvars           # Variable values.
 └── variable.tf                # Variable definitions.
 ```
 
