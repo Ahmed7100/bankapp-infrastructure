@@ -46,7 +46,7 @@ jobs:
           ./tfsec --version
 
       - name: 'Terraform Init'
-        run: terraform init
+        run: terraform init --upgrade
 
       - name: 'Terraform Format'
         run: terraform fmt
