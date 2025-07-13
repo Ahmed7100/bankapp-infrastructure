@@ -10,9 +10,9 @@ This repository contains the infrastructure-as-code (IaC) setup using **Terrafor
 
 ```bash
 terraform-eks-db/
-├── .github/workflows/          # GitHub Actions CI/CD workflows
-├── .qodo/                      # Local automation/scripts (optional or internal tooling)
-├── docker-git-runner-setup/   # Docker setup for custom GitHub runner (if used)
+├── .github/workflows/          # GitHub Actions CI/CD workflows.
+├── .qodo/                      # Local automation/scripts (optional or internal tooling).
+├── docker-git-runner-setup/   # Docker setup for custom GitHub runner (if used).
 ├── module-database/           # Terraform module to deploy RDS databases
 ├── module-dns/                # Terraform module for Route53 or other DNS setup
 ├── module-eks/                # Terraform module to deploy an EKS cluster
@@ -24,7 +24,7 @@ terraform-eks-db/
 ├── deploy.yaml                # Sample GitHub Actions workflow (deprecated or backup)
 ├── main.tf                    # Main Terraform entry point that wires all modules
 ├── output.tf                  # Outputs of the infrastructure
-├── readme.MD                  # You are here
+├── readme.MD                  # You are here.
 ├── terraform.tfvars           # Variable values
 └── variable.tf                # Variable definitions.
 ```

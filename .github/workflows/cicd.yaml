@@ -16,7 +16,7 @@ jobs:
       AWS_REGION: ${{ secrets.AWS_REGION }}
     steps:
       - name: Checkout repository.
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4  #checkout@v2
 
       - name: Setup GitHub OIDC
         run: | 
@@ -32,10 +32,10 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             # Removed role-to-assume as requested
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
-        with:
-            cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      # - name: Setup Terraform
+      #   uses: hashicorp/setup-terraform@v2 #setup-terraform@v1
+      #   with:
+      #       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
 
 
@@ -46,13 +46,14 @@ jobs:
           ./tfsec --version
 
       - name: 'Terraform Init'
-        run: terraform init --upgrade
+        run: terraform init
 
       - name: 'Terraform Format'
         run: terraform fmt
 
       - name: 'Terraform Validate'
         run: terraform validate
+
 
       - name: 'tfsec Security Scan.'
         run: ./tfsec . || true
@@ -78,5 +79,5 @@ jobs:
       - name: 'Deploying argocd ingress rule to EKS'
         run: kubectl apply -f ingress-argocd.yaml -n argocd
 
-      # - name: Terraform Destroy
-      #   run: terraform destroy -auto-approve 
+      #- name: Terraform Destroy
+       # run: terraform destroy -auto-approve 
