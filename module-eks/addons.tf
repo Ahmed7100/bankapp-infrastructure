@@ -17,29 +17,29 @@ data "aws_eks_cluster_auth" "eks" {
     name = aws_eks_cluster.eks.name
 }// ...existing code...
 
-resource "helm_release" "kube_prometheus_stack" {
-  name       = "kube-prometheus-stack"
-  repository = "https://prometheus-community.github.io/helm-charts"
-  chart      = "kube-prometheus-stack"
-  version    = "56.7.0"
-  namespace  = "monitoring"
-  create_namespace = true
+# resource "helm_release" "kube_prometheus_stack" {
+#   name       = "kube-prometheus-stack"
+#   repository = "https://prometheus-community.github.io/helm-charts"
+#   chart      = "kube-prometheus-stack"
+#   version    = "56.7.0"
+#   namespace  = "monitoring"
+#   create_namespace = true
 
-  values = []
-  depends_on = [aws_eks_node_group.eks_node_group]
-}
+#   values = []
+#   depends_on = [aws_eks_node_group.eks_node_group]
+# }
 
-resource "helm_release" "grafana" {
-  name       = "grafana"
-  repository = "https://grafana.github.io/helm-charts"
-  chart      = "grafana"
-  version    = "7.3.9"
-  namespace  = "monitoring"
-  create_namespace = false
+# resource "helm_release" "grafana" {
+#   name       = "grafana"
+#   repository = "https://grafana.github.io/helm-charts"
+#   chart      = "grafana"
+#   version    = "7.3.9"
+#   namespace  = "monitoring"
+#   create_namespace = false
 
-  values = []
-  depends_on = [helm_release.kube_prometheus_stack]
-}
+#   values = []
+#   depends_on = [helm_release.kube_prometheus_stack]
+# }
 resource "helm_release" "nginx_ingress" {
     name       = "nginx-ingress"
     repository = "https://kubernetes.github.io/ingress-nginx"
