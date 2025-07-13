@@ -51,14 +51,8 @@ jobs:
       - name: 'Terraform Format'
         run: terraform fmt
 
-      # - name: 'Terraform Validate'
-      #   run: terraform validate
-
-      - name: Deep Validate
-        run: |
-          terraform providers schema -json > schema.json
-          jq -e '.provider_schemas | has("helm")' schema.json
-
+      - name: 'Terraform Validate'
+        run: terraform validate
 
       - name: 'tfsec Security Scan.'
         run: ./tfsec . || true
