@@ -46,7 +46,7 @@ spec:
   tls:
   - hosts:
     - app.learnsphere.online
-    secretName: app-tcsbank-online
+    secretName: app-learnsphere-online
   rules:
   - host: app.learnsphere.online
     http:

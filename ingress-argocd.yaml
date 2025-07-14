@@ -12,7 +12,7 @@ spec:
   tls:
   - hosts:
     - argocd.learnsphere.online
-    secretName: argocd-tcsbank-online
+    secretName: argocd-learnsphere-online
   rules:
   - host: argocd.learnsphere.online
     http:
