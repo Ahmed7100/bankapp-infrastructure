@@ -23,7 +23,7 @@ terraform-eks-db/
 ├── backend.tf                 # Remote state configuration (e.g., Terraform Cloud/S3)
 ├── deploy.yaml                # Sample GitHub Actions workflow (deprecated or backup)
 ├── main.tf                    # Main Terraform entry point that wires all modules
-├── output.tf                  # Outputs of the infrastructure
+├── output.tf                  # Outputs of the infrastructure.
 ├── readme.MD                  # You are here.
 ├── terraform.tfvars           # Variable values.
 └── variable.tf                # Variable definitions.
