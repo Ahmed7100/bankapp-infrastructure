@@ -11,10 +11,10 @@ spec:
   ingressClassName: external-nginx
   tls:
   - hosts:
-    - argocd.kephazworld.online
+    - argocd.learnsphere.online
     secretName: argocd-tcsbank-online
   rules:
-  - host: argocd.kephazworld.online
+  - host: argocd.learnsphere.online
     http:
       paths:
       - path: /

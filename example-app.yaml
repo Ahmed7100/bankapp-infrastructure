@@ -45,10 +45,10 @@ spec:
   ingressClassName: external-nginx
   tls:
   - hosts:
-    - app.kephazworld.online
+    - app.learnsphere.online
     secretName: app-tcsbank-online
   rules:
-  - host: app.kephazworld.online
+  - host: app.learnsphere.online
     http:
       paths:
       - path: /
