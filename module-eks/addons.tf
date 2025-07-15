@@ -25,7 +25,15 @@ resource "helm_release" "kube_prometheus_stack" {
   namespace  = "monitoring"
   create_namespace = true
 
-  values = []
+  // For Prometheus
+  values = [
+    <<EOF
+prometheus:
+  service:
+    type: LoadBalancer
+EOF
+  ]
+
   depends_on = [aws_eks_node_group.eks_node_group]
 }
 
@@ -37,9 +45,17 @@ resource "helm_release" "grafana" {
   namespace  = "monitoring"
   create_namespace = false
 
-  values = []
+  // For Grafana
+  values = [
+    <<EOF
+service:
+  type: LoadBalancer
+EOF
+  ]
+
   depends_on = [helm_release.kube_prometheus_stack]
 }
+
 resource "helm_release" "nginx_ingress" {
     name       = "nginx-ingress"
     repository = "https://kubernetes.github.io/ingress-nginx"
