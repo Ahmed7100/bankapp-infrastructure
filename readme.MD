@@ -13,8 +13,8 @@ terraform-eks-db/
 ├── .github/workflows/          # GitHub Actions CI/CD workflows.
 ├── .qodo/                      # Local automation/scripts (optional or internal tooling).
 ├── docker-git-runner-setup/   # Docker setup for custom GitHub runner (if used).
-├── module-database/           # Terraform module to deploy RDS databases
-├── module-dns/                # Terraform module for Route53 or other DNS setup
+├── module-database/           # Terraform module to deploy RDS databases.
+├── module-dns/                # Terraform module for Route53 or other DNS setup.
 ├── module-eks/                # Terraform module to deploy an EKS cluster
 ├── module-vpc/                # Terraform module to provision VPC and networking
 ├── .terraform.lock.hcl        # Provider and dependency lock file
